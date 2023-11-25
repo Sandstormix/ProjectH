@@ -7,6 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Pistol.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -34,7 +35,6 @@ AProjectHCharacter::AProjectHCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
-
 }
 
 void AProjectHCharacter::BeginPlay()
@@ -72,9 +72,18 @@ void AProjectHCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	}
 }
 
-ARangeWeapon* AProjectHCharacter::GetPlayerRangeWeapon()
+ARangeWeapon* AProjectHCharacter::GetPlayerRangeWeapon() const
 {
 	return Pistol;
+}
+
+FTransform AProjectHCharacter::GetTRightHandWeaponSocket()
+{
+	if(Mesh1P)
+	{
+		TRightHandWeaponSocket = Mesh1P->GetSocketTransform(TEXT("hand_r_weapon_socket"));
+	}
+	return TRightHandWeaponSocket;
 }
 
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
@@ -118,3 +127,4 @@ bool AProjectHCharacter::GetHasRifle()
 {
 	return bHasRifle;
 }
+
