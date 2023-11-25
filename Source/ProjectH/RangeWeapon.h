@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BlendSpaceAnalysis.h"
 #include "GameFramework/Actor.h"
 #include "RangeWeapon.generated.h"
 
@@ -22,5 +23,17 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	//Getters
+	UFUNCTION(BlueprintGetter)
+	UStaticMeshComponent* GetWeaponMesh();
+	
+	//Setters
+	UFUNCTION(BlueprintSetter)
+	void SetWeaponMesh(UStaticMeshComponent* weaponMesh);
+		
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
+	UStaticMeshComponent* WeaponMesh;
 
 };
