@@ -50,6 +50,11 @@ int ARangeWeapon::GetCurrentWeaponAmmo() const
 	return CurrentWeaponAmmo;
 }
 
+USphereComponent* ARangeWeapon::GetRayCastExitPoint()
+{
+	return RayCastExitPoint;
+}
+
 void ARangeWeapon::SetWeaponMesh(UStaticMeshComponent* weaponMesh)
 {
 	WeaponMesh = weaponMesh;
@@ -63,5 +68,10 @@ void ARangeWeapon::SetWeaponDamage(float weaponDamage)
 void ARangeWeapon::SetCurrentWeaponAmmo(int weaponAmmo)
 {
 	CurrentWeaponAmmo = weaponAmmo;
+}
+
+void ARangeWeapon::SetRayCastExitPoint(USphereComponent* rayCastExitPoint)
+{
+	RayCastExitPoint = rayCastExitPoint;
 }
 

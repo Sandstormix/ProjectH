@@ -37,6 +37,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	int GetCurrentWeaponAmmo() const;
+
+	UFUNCTION(BlueprintGetter)
+	USphereComponent* GetRayCastExitPoint();
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -47,6 +50,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetCurrentWeaponAmmo(int weaponAmmo);
+
+	UFUNCTION(BlueprintSetter)
+	void SetRayCastExitPoint(USphereComponent* rayCastExitPoint);
 
 protected:
 	const int MaxWeaponAmmo = 7;
@@ -61,6 +67,6 @@ private:
 	UPROPERTY(BlueprintGetter="GetCurrentWeaponAmmo", BlueprintSetter="SetCurrentWeaponAmmo")
 	int CurrentWeaponAmmo;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetRayCastExitPoint", BlueprintSetter="SetRayCastExitPoint")
 	USphereComponent* RayCastExitPoint;
 };
