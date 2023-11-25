@@ -32,7 +32,6 @@ void ARangeWeapon::Tick(float DeltaTime)
 
 void ARangeWeapon::OnWeaponUse()
 {
-	
 }
 
 UStaticMeshComponent* ARangeWeapon::GetWeaponMesh() const
