@@ -24,16 +24,38 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	virtual void OnWeaponUse();
+
 	//Getters
 	UFUNCTION(BlueprintGetter)
-	UStaticMeshComponent* GetWeaponMesh();
+	UStaticMeshComponent* GetWeaponMesh() const;
+
+	UFUNCTION(BlueprintGetter)
+	float GetWeaponDamage() const;
+
+	UFUNCTION(BlueprintGetter)
+	int GetCurrentWeaponAmmo() const;
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
 	void SetWeaponMesh(UStaticMeshComponent* weaponMesh);
+
+	UFUNCTION(BlueprintSetter)
+	void SetWeaponDamage(float weaponDamage);
+
+	UFUNCTION(BlueprintSetter)
+	void SetCurrentWeaponAmmo(int weaponAmmo);
 		
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
 	UStaticMeshComponent* WeaponMesh;
 
+	UPROPERTY(BlueprintGetter="GetWeaponDamage", BlueprintSetter="SetWeaponDamage")
+	float WeaponDamage;
+
+	UPROPERTY(BlueprintGetter="GetCurrentWeaponAmmo", BlueprintSetter="SetCurrentWeaponAmmo")
+	int CurrentWeaponAmmo;
+
+	const int MaxWeaponAmmo = 7;
 };

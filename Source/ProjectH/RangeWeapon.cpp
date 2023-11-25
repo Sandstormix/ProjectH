@@ -28,13 +28,38 @@ void ARangeWeapon::Tick(float DeltaTime)
 
 }
 
-UStaticMeshComponent* ARangeWeapon::GetWeaponMesh()
+void ARangeWeapon::OnWeaponUse()
+{
+	
+}
+
+UStaticMeshComponent* ARangeWeapon::GetWeaponMesh() const
 {
 	return WeaponMesh;
+}
+
+float ARangeWeapon::GetWeaponDamage() const
+{
+	return WeaponDamage;
+}
+
+int ARangeWeapon::GetCurrentWeaponAmmo() const
+{
+	return CurrentWeaponAmmo;
 }
 
 void ARangeWeapon::SetWeaponMesh(UStaticMeshComponent* weaponMesh)
 {
 	WeaponMesh = weaponMesh;
+}
+
+void ARangeWeapon::SetWeaponDamage(float weaponDamage)
+{
+	WeaponDamage = weaponDamage;
+}
+
+void ARangeWeapon::SetCurrentWeaponAmmo(int weaponAmmo)
+{
+	CurrentWeaponAmmo = weaponAmmo;
 }
 
