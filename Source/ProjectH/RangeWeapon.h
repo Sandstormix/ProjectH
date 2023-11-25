@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BlendSpaceAnalysis.h"
+#include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "RangeWeapon.generated.h"
 
@@ -23,4 +25,47 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	virtual void OnWeaponUse();
+
+	//Getters
+	UFUNCTION(BlueprintGetter)
+	UStaticMeshComponent* GetWeaponMesh() const;
+
+	UFUNCTION(BlueprintGetter)
+	float GetWeaponDamage() const;
+
+	UFUNCTION(BlueprintGetter)
+	int GetCurrentWeaponAmmo() const;
+
+	UFUNCTION(BlueprintGetter)
+	USphereComponent* GetRayCastExitPoint();
+	
+	//Setters
+	UFUNCTION(BlueprintSetter)
+	void SetWeaponMesh(UStaticMeshComponent* weaponMesh);
+
+	UFUNCTION(BlueprintSetter)
+	void SetWeaponDamage(float weaponDamage);
+
+	UFUNCTION(BlueprintSetter)
+	void SetCurrentWeaponAmmo(int weaponAmmo);
+
+	UFUNCTION(BlueprintSetter)
+	void SetRayCastExitPoint(USphereComponent* rayCastExitPoint);
+
+protected:
+	const int MaxWeaponAmmo = 7;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
+	UStaticMeshComponent* WeaponMesh;
+
+	UPROPERTY(BlueprintGetter="GetWeaponDamage", BlueprintSetter="SetWeaponDamage")
+	float WeaponDamage;
+
+	UPROPERTY(BlueprintGetter="GetCurrentWeaponAmmo", BlueprintSetter="SetCurrentWeaponAmmo")
+	int CurrentWeaponAmmo;
+
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetRayCastExitPoint", BlueprintSetter="SetRayCastExitPoint")
+	USphereComponent* RayCastExitPoint;
 };

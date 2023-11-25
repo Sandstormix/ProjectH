@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "RangeWeapon.h"
 #include "ProjectHCharacter.generated.h"
 
 class UInputComponent;
@@ -39,6 +40,8 @@ class AProjectHCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	class UInputAction* MoveAction;
 
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetTRightHandWeaponSocket")
+	FTransform TRightHandWeaponSocket;
 	
 public:
 	AProjectHCharacter();
@@ -63,7 +66,7 @@ public:
 	/** Getter for the bool */
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
-
+	
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
@@ -81,7 +84,22 @@ public:
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+	
+	//Getters
+	UFUNCTION(BlueprintGetter)
+	ARangeWeapon* GetPlayerRangeWeapon() const;
 
-
+	UFUNCTION(BlueprintGetter)
+	FTransform GetTRightHandWeaponSocket();
+	
+	//Setters
+	UFUNCTION(BlueprintSetter)
+	void SetPlayerRangeWeapon(ARangeWeapon* pistol);
+	
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
+	ARangeWeapon* Pistol;
+	
+	
 };
 
