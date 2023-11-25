@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BlendSpaceAnalysis.h"
+#include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "RangeWeapon.generated.h"
 
@@ -46,7 +47,10 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetCurrentWeaponAmmo(int weaponAmmo);
-		
+
+protected:
+	const int MaxWeaponAmmo = 7;
+	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
 	UStaticMeshComponent* WeaponMesh;
@@ -57,5 +61,6 @@ private:
 	UPROPERTY(BlueprintGetter="GetCurrentWeaponAmmo", BlueprintSetter="SetCurrentWeaponAmmo")
 	int CurrentWeaponAmmo;
 
-	const int MaxWeaponAmmo = 7;
+	UPROPERTY(VisibleAnywhere)
+	USphereComponent* RayCastExitPoint;
 };

@@ -11,6 +11,8 @@ ARangeWeapon::ARangeWeapon()
 
 	WeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon Mesh"));
 	RootComponent = WeaponMesh;
+	RayCastExitPoint = CreateDefaultSubobject<USphereComponent>(TEXT("Ray Cast Exit Point"));
+	RayCastExitPoint->SetupAttachment(RootComponent);
 
 }
 
