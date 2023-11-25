@@ -13,13 +13,18 @@ APistol::~APistol()
 	
 }
 
+void APistol::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+}
+
 void APistol::OnWeaponUse()
 {
 	FVector RayCastStartLocation;
 	FRotator RaycastStartRotator;
 
-	RayCastStartLocation = this->GetRayCastExitPoint()->GetRelativeLocation();
-	RaycastStartRotator = this->GetRayCastExitPoint()->GetRelativeRotation();
+	RayCastStartLocation = this->GetRayCastExitPoint()->GetComponentLocation();
+	RaycastStartRotator = this->GetRayCastExitPoint()->GetComponentRotation();
 
 	FVector RayCastEnd = RayCastStartLocation + RaycastStartRotator.Vector() * 1000;
 
@@ -29,8 +34,13 @@ void APistol::OnWeaponUse()
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, RayCastStartLocation, RayCastEnd, ECC_Visibility, CollisionParams);
 
+	GEngine->AddOnScreenDebugMessage(-1, 15, FColor::Yellow, TEXT("PEW PEW"));
+
+	DrawDebugLine(GetWorld(), RayCastStartLocation, RayCastEnd, FColor::Green, false, 5.0f, 0, 2.0f);
+	
 	if(bHit)
 	{
-		DrawDebugLine(GetWorld(), RayCastStartLocation, RayCastEnd, FColor::Green, false, 2.0f, 0, 1.0f);
+		
 	}
 }
+

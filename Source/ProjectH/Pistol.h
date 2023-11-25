@@ -13,11 +13,14 @@ UCLASS()
 class PROJECTH_API APistol : public ARangeWeapon
 {
 	GENERATED_BODY()
-
+	
+public:
+	
 	APistol();
 	~APistol();
-
-public:
+	
 	void OnWeaponUse() override;
+
+	virtual void Tick(float DeltaSeconds) override;
 	
 };
