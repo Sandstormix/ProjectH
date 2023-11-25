@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "RangeWeapon.h"
 #include "ProjectHCharacter.generated.h"
 
 class UInputComponent;
@@ -82,6 +83,16 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
-
+	//Getters
+	UFUNCTION(BlueprintGetter)
+	ARangeWeapon* GetPlayerRangeWeapon();
+	
+	//Setters
+	UFUNCTION(BlueprintSetter)
+	void SetPlayerRangeWeapon(ARangeWeapon* pistol);
+	
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
+	ARangeWeapon* Pistol;
 };
 

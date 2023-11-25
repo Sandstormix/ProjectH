@@ -72,6 +72,16 @@ void AProjectHCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	}
 }
 
+ARangeWeapon* AProjectHCharacter::GetPlayerRangeWeapon()
+{
+	return Pistol;
+}
+
+void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
+{
+	Pistol = pistol;
+}
+
 
 void AProjectHCharacter::Move(const FInputActionValue& Value)
 {
