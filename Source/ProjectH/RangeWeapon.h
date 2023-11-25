@@ -57,7 +57,6 @@ public:
 protected:
 	const int MaxWeaponAmmo = 7;
 	
-private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
 	UStaticMeshComponent* WeaponMesh;
 
