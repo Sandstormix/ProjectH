@@ -18,8 +18,6 @@ class PROJECTH_API APistol : public ARangeWeapon
 	~APistol();
 
 public:
-
-	UFUNCTION(BlueprintCallable)
 	void OnWeaponUse() override;
 	
 };
