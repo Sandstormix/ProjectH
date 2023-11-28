@@ -81,7 +81,7 @@ FTransform AProjectHCharacter::GetTRightHandWeaponSocket()
 {
 	if(Mesh1P)
 	{
-		TRightHandWeaponSocket = Mesh1P->GetSocketTransform(TEXT("hand_r_weapon_socket"));
+		TRightHandWeaponSocket = Mesh1P->GetSocketTransform(TEXT("GripPoint"));
 	}
 	return TRightHandWeaponSocket;
 }
@@ -89,6 +89,11 @@ FTransform AProjectHCharacter::GetTRightHandWeaponSocket()
 AInteractableActor* AProjectHCharacter::GetInteractableObjectInRange() const
 {
 	return InteractableActor;
+}
+
+bool AProjectHCharacter::GetbIsWeaponOut()
+{
+	return bIsWeaponOut;
 }
 
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
@@ -99,6 +104,11 @@ void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 void AProjectHCharacter::SetInteractableObjectInRange(AInteractableActor* interactableActor)
 {
 	InteractableActor = interactableActor;	
+}
+
+void AProjectHCharacter::SetbIsWeaponOut(bool isWeaponOut)
+{
+	bIsWeaponOut = isWeaponOut;
 }
 
 

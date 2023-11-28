@@ -21,10 +21,12 @@ class AProjectHCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+public:
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
-	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category=Mesh)
 	USkeletalMeshComponent* Mesh1P;
 
+protected:
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
@@ -98,6 +100,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	AInteractableActor* GetInteractableObjectInRange() const;
+
+	UFUNCTION(BlueprintGetter)
+	bool GetbIsWeaponOut();
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -105,6 +110,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetInteractableObjectInRange(AInteractableActor* interactableActor);
+
+	UFUNCTION(BlueprintSetter)
+	void SetbIsWeaponOut(bool isWeaponOut);
 	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
@@ -112,5 +120,8 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetInteractableObjectInRange", BlueprintSetter="SetInteractableObjectInRange")
 	AInteractableActor* InteractableActor;
+
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetbIsWeaponOut", BlueprintSetter="SetbIsWeaponOut")
+	bool bIsWeaponOut;
 };
 
