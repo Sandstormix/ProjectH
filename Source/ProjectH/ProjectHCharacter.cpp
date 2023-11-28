@@ -86,9 +86,19 @@ FTransform AProjectHCharacter::GetTRightHandWeaponSocket()
 	return TRightHandWeaponSocket;
 }
 
+AInteractableActor* AProjectHCharacter::GetInteractableObjectInRange() const
+{
+	return InteractableActor;
+}
+
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 {
 	Pistol = pistol;
+}
+
+void AProjectHCharacter::SetInteractableObjectInRange(AInteractableActor* interactableActor)
+{
+	InteractableActor = interactableActor;	
 }
 
 
@@ -126,5 +136,13 @@ void AProjectHCharacter::SetHasRifle(bool bNewHasRifle)
 bool AProjectHCharacter::GetHasRifle()
 {
 	return bHasRifle;
+}
+
+void AProjectHCharacter::CallObjectInteraction()
+{
+	if(IInteractable* InteractableInterface = Cast<IInteractable>(InteractableActor))
+	{
+		InteractableInterface->OnInteract(false);
+	}
 }
 

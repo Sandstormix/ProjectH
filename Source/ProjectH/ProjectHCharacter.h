@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "InteractableActor.h"
 #include "RangeWeapon.h"
 #include "ProjectHCharacter.generated.h"
 
@@ -66,6 +67,9 @@ public:
 	/** Getter for the bool */
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
+
+	UFUNCTION(BlueprintCallable)
+	void CallObjectInteraction();
 	
 protected:
 	/** Called for movement input */
@@ -91,15 +95,22 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	FTransform GetTRightHandWeaponSocket();
+
+	UFUNCTION(BlueprintGetter)
+	AInteractableActor* GetInteractableObjectInRange() const;
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
 	void SetPlayerRangeWeapon(ARangeWeapon* pistol);
+
+	UFUNCTION(BlueprintSetter)
+	void SetInteractableObjectInRange(AInteractableActor* interactableActor);
 	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
 	ARangeWeapon* Pistol;
 	
-	
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetInteractableObjectInRange", BlueprintSetter="SetInteractableObjectInRange")
+	AInteractableActor* InteractableActor;
 };
 
