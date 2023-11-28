@@ -96,6 +96,11 @@ bool AProjectHCharacter::GetbIsWeaponOut()
 	return bIsWeaponOut;
 }
 
+bool AProjectHCharacter::GetbIsShooting()
+{
+	return bIsShootting;
+}
+
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 {
 	Pistol = pistol;
@@ -109,6 +114,11 @@ void AProjectHCharacter::SetInteractableObjectInRange(AInteractableActor* intera
 void AProjectHCharacter::SetbIsWeaponOut(bool isWeaponOut)
 {
 	bIsWeaponOut = isWeaponOut;
+}
+
+void AProjectHCharacter::SetbIsShooting(bool isShooting)
+{
+	bIsShootting = isShooting;
 }
 
 

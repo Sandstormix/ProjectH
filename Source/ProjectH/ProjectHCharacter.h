@@ -103,6 +103,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	bool GetbIsWeaponOut();
+
+	UFUNCTION(BlueprintGetter)
+	bool GetbIsShooting();
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -113,6 +116,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetbIsWeaponOut(bool isWeaponOut);
+
+	UFUNCTION(BlueprintSetter)
+	void SetbIsShooting(bool isShooting);
 	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
@@ -123,5 +129,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetbIsWeaponOut", BlueprintSetter="SetbIsWeaponOut")
 	bool bIsWeaponOut;
+
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetbIsShooting", BlueprintSetter="SetbIsShooting")
+	bool bIsShootting;
 };
 
