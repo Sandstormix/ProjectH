@@ -45,20 +45,20 @@ void ADoors::OnInteract(bool bCanInteract)
 	bCanInteract = bPlayerIsInRange;
 	if(bCanInteract)
 	{
-		OpenDoors();	
+		OpenDoors(DoorOpenAngle);	
 	}
 }
 
-void ADoors::OpenDoors()
+void ADoors::OpenDoors(float doorAngle)
 {
 	if(bOpenDoorInside)
 	{
-		const FRotator NewDoorRotation = FRotator(0.0f, 90.0f, 0.0f);
+		const FRotator NewDoorRotation = FRotator(0.0f, doorAngle, 0.0f);
 		DoorMesh->SetWorldRotation(NewDoorRotation);
 	}
 	else
 	{
-		const FRotator NewDoorRotation = FRotator(0.0f, -90.0f, 0.0f);
+		const FRotator NewDoorRotation = FRotator(0.0f, doorAngle, 0.0f);
 		DoorMesh->SetWorldRotation(NewDoorRotation);
 	}
 }
