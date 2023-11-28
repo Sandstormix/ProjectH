@@ -46,7 +46,6 @@ void ADoors::OnInteract(bool bCanInteract)
 	if(bCanInteract)
 	{
 		OpenDoorWithAnimation();
-		//OpenDoors(DoorOpenAngle);	
 	}
 }
 
