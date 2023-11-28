@@ -45,7 +45,8 @@ void ADoors::OnInteract(bool bCanInteract)
 	bCanInteract = bPlayerIsInRange;
 	if(bCanInteract)
 	{
-		OpenDoors(DoorOpenAngle);	
+		OpenDoorWithAnimation();
+		//OpenDoors(DoorOpenAngle);	
 	}
 }
 
@@ -62,10 +63,6 @@ void ADoors::OpenDoors(float doorAngle)
 		DoorMesh->SetWorldRotation(NewDoorRotation);
 	}
 }
-
-
-
-
 
 
 

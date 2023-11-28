@@ -22,14 +22,20 @@ public:
 
 	virtual void OnInteract(bool bCanInteract) override;
 
-	UPROPERTY(BlueprintReadWrite)
-	float DoorOpenAngle;
-
+	UFUNCTION(BlueprintImplementableEvent)
+	void OpenDoorWithAnimation();
+	
 	UFUNCTION(BlueprintCallable)
 	void OpenDoors(float doorAngle);
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bOpenDoorInside;
+
+	UPROPERTY(BlueprintReadWrite)
+	float DoorOpenAngle;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsDoorOpen;
 	
 protected:
 	UPROPERTY(VisibleAnywhere)
