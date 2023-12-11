@@ -3,9 +3,12 @@
 
 #include "Pistol.h"
 
+#include "Damagable.h"
+#include "EnemyAI.h"
+
 APistol::APistol()
 {
-	
+	this->WeaponDamage = 10.0f;
 }
 
 APistol::~APistol()
@@ -26,21 +29,22 @@ void APistol::OnWeaponUse()
 	RayCastStartLocation = this->GetRayCastExitPoint()->GetComponentLocation();
 	RaycastStartRotator = this->GetRayCastExitPoint()->GetComponentRotation();
 
-	FVector RayCastEnd = RayCastStartLocation + RaycastStartRotator.Vector() * 1000;
+	FVector RayCastEnd = RayCastStartLocation + RaycastStartRotator.Vector() * 10000;
 
 	FHitResult HitResult;
 	FCollisionQueryParams CollisionParams;
 	CollisionParams.AddIgnoredActor(this);
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, RayCastStartLocation, RayCastEnd, ECC_Visibility, CollisionParams);
-
-	GEngine->AddOnScreenDebugMessage(-1, 15, FColor::Yellow, TEXT("PEW PEW"));
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, RayCastStartLocation, RayCastEnd, ECC_Pawn, CollisionParams);
 
 	DrawDebugLine(GetWorld(), RayCastStartLocation, RayCastEnd, FColor::Green, false, 5.0f, 0, 2.0f);
 	
 	if(bHit)
 	{
-		
+		if(IDamagable* DamagableCharacter = Cast<IDamagable>(HitResult.GetActor()))
+		{
+			DamagableCharacter->OnDamageTake(this->WeaponDamage);
+		}
 	}
 }
 
