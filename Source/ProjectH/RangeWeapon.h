@@ -30,7 +30,7 @@ public:
 
 	//Getters
 	UFUNCTION(BlueprintGetter)
-	UStaticMeshComponent* GetWeaponMesh() const;
+	USkeletalMeshComponent* GetWeaponMesh() const;
 
 	UFUNCTION(BlueprintGetter)
 	float GetWeaponDamage() const;
@@ -43,7 +43,7 @@ public:
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
-	void SetWeaponMesh(UStaticMeshComponent* weaponMesh);
+	void SetWeaponMesh(USkeletalMeshComponent* weaponMesh);
 
 	UFUNCTION(BlueprintSetter)
 	void SetWeaponDamage(float weaponDamage);
@@ -57,8 +57,8 @@ public:
 protected:
 	const int MaxWeaponAmmo = 7;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
-	UStaticMeshComponent* WeaponMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
+	USkeletalMeshComponent* WeaponMesh;
 
 	UPROPERTY(BlueprintGetter="GetWeaponDamage", BlueprintSetter="SetWeaponDamage")
 	float WeaponDamage;

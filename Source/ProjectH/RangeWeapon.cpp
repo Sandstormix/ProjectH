@@ -9,7 +9,7 @@ ARangeWeapon::ARangeWeapon()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	WeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon Mesh"));
+	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon Mesh"));
 	RootComponent = WeaponMesh;
 	RayCastExitPoint = CreateDefaultSubobject<USphereComponent>(TEXT("Ray Cast Exit Point"));
 	RayCastExitPoint->SetupAttachment(RootComponent);
@@ -34,7 +34,7 @@ void ARangeWeapon::OnWeaponUse()
 {
 }
 
-UStaticMeshComponent* ARangeWeapon::GetWeaponMesh() const
+USkeletalMeshComponent* ARangeWeapon::GetWeaponMesh() const
 {
 	return WeaponMesh;
 }
@@ -54,7 +54,7 @@ USphereComponent* ARangeWeapon::GetRayCastExitPoint()
 	return RayCastExitPoint;
 }
 
-void ARangeWeapon::SetWeaponMesh(UStaticMeshComponent* weaponMesh)
+void ARangeWeapon::SetWeaponMesh(USkeletalMeshComponent* weaponMesh)
 {
 	WeaponMesh = weaponMesh;
 }
