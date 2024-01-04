@@ -22,5 +22,4 @@ public:
 	void OnWeaponUse() override;
 
 	virtual void Tick(float DeltaSeconds) override;
-	
 };

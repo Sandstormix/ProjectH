@@ -29,7 +29,6 @@ public:
 	virtual void PostInitializeComponents() override;
 	virtual void OnInteract(bool bCanInteract) override;
 	
-public:
 	UFUNCTION()
 	virtual void OnBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent,
 		int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
