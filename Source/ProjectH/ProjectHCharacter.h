@@ -106,6 +106,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	bool GetbIsShooting();
+
+	UFUNCTION(BlueprintGetter)
+	float GetPlayerHealth();
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -119,6 +122,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetbIsShooting(bool isShooting);
+
+	UFUNCTION(BlueprintSetter)
+	void SetPlayerHealth(float playerHealth);
 	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
@@ -132,5 +138,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetbIsShooting", BlueprintSetter="SetbIsShooting")
 	bool bIsShootting;
+
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerHealth", BlueprintSetter="SetPlayerHealth")
+	float PlayerHealth;
 };
 

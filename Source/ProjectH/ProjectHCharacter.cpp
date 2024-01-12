@@ -35,6 +35,8 @@ AProjectHCharacter::AProjectHCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+
+	SetPlayerHealth(100);
 }
 
 void AProjectHCharacter::BeginPlay()
@@ -101,6 +103,11 @@ bool AProjectHCharacter::GetbIsShooting()
 	return bIsShootting;
 }
 
+float AProjectHCharacter::GetPlayerHealth()
+{
+	return PlayerHealth;
+}
+
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 {
 	Pistol = pistol;
@@ -119,6 +126,11 @@ void AProjectHCharacter::SetbIsWeaponOut(bool isWeaponOut)
 void AProjectHCharacter::SetbIsShooting(bool isShooting)
 {
 	bIsShootting = isShooting;
+}
+
+void AProjectHCharacter::SetPlayerHealth(float playerHealth)
+{
+	PlayerHealth = playerHealth;
 }
 
 
