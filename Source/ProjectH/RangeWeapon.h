@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BlendSpaceAnalysis.h"
+#include "FWeapons.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "RangeWeapon.generated.h"
@@ -40,6 +41,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	USphereComponent* GetRayCastExitPoint();
+
+	UFUNCTION(BlueprintGetter)
+	FWeapons GetWeaponData();
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -53,6 +57,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetRayCastExitPoint(USphereComponent* rayCastExitPoint);
+
+	UFUNCTION(BlueprintSetter)
+	void SetWeaponData(FWeapons weaponData);
 
 protected:
 	const int MaxWeaponAmmo = 7;
@@ -68,4 +75,7 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetRayCastExitPoint", BlueprintSetter="SetRayCastExitPoint")
 	USphereComponent* RayCastExitPoint;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponData", BlueprintSetter="SetWeaponData")
+	FWeapons WeaponData;
 };

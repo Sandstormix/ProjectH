@@ -54,6 +54,11 @@ USphereComponent* ARangeWeapon::GetRayCastExitPoint()
 	return RayCastExitPoint;
 }
 
+FWeapons ARangeWeapon::GetWeaponData()
+{
+	return WeaponData;
+}
+
 void ARangeWeapon::SetWeaponMesh(USkeletalMeshComponent* weaponMesh)
 {
 	WeaponMesh = weaponMesh;
@@ -72,5 +77,10 @@ void ARangeWeapon::SetCurrentWeaponAmmo(int weaponAmmo)
 void ARangeWeapon::SetRayCastExitPoint(USphereComponent* rayCastExitPoint)
 {
 	RayCastExitPoint = rayCastExitPoint;
+}
+
+void ARangeWeapon::SetWeaponData(FWeapons weaponData)
+{
+	WeaponData = weaponData;
 }
 

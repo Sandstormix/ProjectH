@@ -8,7 +8,10 @@
 
 APistol::APistol()
 {
-	this->WeaponDamage = 10.0f;
+	this->WeaponData.Damage = 10;
+	this->WeaponData.CurrentAmmo = 7;
+	this->WeaponData.WeaponName = "Pistol";
+	this->WeaponData.WeaponMesh = this->GetWeaponMesh();
 }
 
 APistol::~APistol()
@@ -43,8 +46,10 @@ void APistol::OnWeaponUse()
 	{
 		if(IDamagable* DamagableCharacter = Cast<IDamagable>(HitResult.GetActor()))
 		{
-			DamagableCharacter->OnDamageTake(this->WeaponDamage);
+			DamagableCharacter->OnDamageTake(this->WeaponData.Damage);
 		}
 	}
+
+	this->WeaponData.CurrentAmmo--;
 }
 
