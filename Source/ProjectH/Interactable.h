@@ -6,6 +6,8 @@
 #include "UObject/Interface.h"
 #include "Interactable.generated.h"
 
+class AProjectHCharacter;
+
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class UInteractable : public UInterface
@@ -23,5 +25,5 @@ class PROJECTH_API IInteractable
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	UFUNCTION()
-	virtual void OnInteract(bool bCanInteract = false);
+	virtual void OnInteract(bool bCanInteract = false, AProjectHCharacter* playerReference = nullptr);
 };

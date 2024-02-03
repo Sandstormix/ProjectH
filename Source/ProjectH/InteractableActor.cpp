@@ -36,7 +36,7 @@ void AInteractableActor::Tick(float DeltaTime)
 
 }
 
-void AInteractableActor::OnInteract(bool bCanInteract)
+void AInteractableActor::OnInteract(bool bCanInteract, AProjectHCharacter* playerReference)
 {
 	if(bCanInteract)
 	{

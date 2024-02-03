@@ -22,4 +22,7 @@ public:
 	void OnWeaponUse() override;
 
 	virtual void Tick(float DeltaSeconds) override;
+
+	UFUNCTION(BlueprintCallable)
+	void AddAmmo(int ammoToAdd);
 };

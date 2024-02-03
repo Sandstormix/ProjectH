@@ -20,7 +20,7 @@ public:
 	virtual void OnBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) override;
 	virtual void OnBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex) override;
 
-	virtual void OnInteract(bool bCanInteract) override;
+	virtual void OnInteract(bool bCanInteract, AProjectHCharacter* playerReference) override;
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OpenDoorWithAnimation();

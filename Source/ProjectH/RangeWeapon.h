@@ -29,6 +29,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void OnWeaponUse();
 
+	UFUNCTION(BlueprintCallable)
+	void AddWeaponAmmo(int ammoToAdd);
+
 	//Getters
 	UFUNCTION(BlueprintGetter)
 	USkeletalMeshComponent* GetWeaponMesh() const;

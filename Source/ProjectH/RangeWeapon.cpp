@@ -34,6 +34,11 @@ void ARangeWeapon::OnWeaponUse()
 {
 }
 
+void ARangeWeapon::AddWeaponAmmo(int ammoToAdd)
+{
+	
+}
+
 USkeletalMeshComponent* ARangeWeapon::GetWeaponMesh() const
 {
 	return WeaponMesh;

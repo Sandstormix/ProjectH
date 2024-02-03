@@ -12,7 +12,7 @@ AInspectItem::AInspectItem()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void AInspectItem::OnInteract(bool bCanInteract)
+void AInspectItem::OnInteract(bool bCanInteract, AProjectHCharacter* playerReference)
 {
 	if(CharacterReference)
 	{

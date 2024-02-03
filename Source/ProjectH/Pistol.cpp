@@ -24,6 +24,11 @@ void APistol::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 }
 
+void APistol::AddAmmo(int ammoToAdd)
+{
+	this->WeaponData.CurrentAmmo += ammoToAdd;
+}
+
 void APistol::OnWeaponUse()
 {
 	FVector RayCastStartLocation;

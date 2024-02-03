@@ -20,7 +20,7 @@ public:
 	// Sets default values for this actor's properties
 	AInspectItem();
 
-	virtual void OnInteract(bool bCanInteract) override;
+	virtual void OnInteract(bool bCanInteract, AProjectHCharacter* playerReference) override;
 	virtual void PostInitializeComponents() override;
 
 protected:

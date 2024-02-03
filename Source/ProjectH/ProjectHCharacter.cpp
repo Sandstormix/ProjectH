@@ -115,6 +115,7 @@ void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 
 void AProjectHCharacter::SetInteractableObjectInRange(AInteractableActor* interactableActor)
 {
+
 	InteractableActor = interactableActor;	
 }
 
@@ -174,7 +175,7 @@ void AProjectHCharacter::CallObjectInteraction()
 {
 	if(IInteractable* InteractableInterface = Cast<IInteractable>(InteractableActor))
 	{
-		InteractableInterface->OnInteract(false);
+		InteractableInterface->OnInteract(false, this);
 	}
 }
 

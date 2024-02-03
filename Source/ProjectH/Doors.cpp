@@ -40,7 +40,7 @@ void ADoors::OnBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* O
 }
 
 
-void ADoors::OnInteract(bool bCanInteract)
+void ADoors::OnInteract(bool bCanInteract, AProjectHCharacter* playerReference)
 {
 	bCanInteract = bPlayerIsInRange;
 	if(bCanInteract)
