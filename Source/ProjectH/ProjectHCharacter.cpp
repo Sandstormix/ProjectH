@@ -108,6 +108,11 @@ float AProjectHCharacter::GetPlayerHealth()
 	return PlayerHealth;
 }
 
+UPlayerHUD* AProjectHCharacter::GetPlayerHUD() const
+{
+	return PlayerHUD;	
+}
+
 void AProjectHCharacter::SetPlayerRangeWeapon(ARangeWeapon* pistol)
 {
 	Pistol = pistol;
@@ -132,6 +137,11 @@ void AProjectHCharacter::SetbIsShooting(bool isShooting)
 void AProjectHCharacter::SetPlayerHealth(float playerHealth)
 {
 	PlayerHealth = playerHealth;
+}
+
+void AProjectHCharacter::SetPlayerHud(UPlayerHUD* playerHud)
+{
+	PlayerHUD = playerHud;
 }
 
 

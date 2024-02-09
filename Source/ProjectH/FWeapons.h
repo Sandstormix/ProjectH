@@ -22,5 +22,8 @@ struct FWeapons : public FTableRowBase
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int maxAmmo;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMeshComponent* WeaponMesh;
 };

@@ -36,7 +36,22 @@ void ARangeWeapon::OnWeaponUse()
 
 void ARangeWeapon::AddWeaponAmmo(int ammoToAdd)
 {
-	
+	WeaponData.SpareAmmo += ammoToAdd;
+}
+
+void ARangeWeapon::Reload()
+{
+	const int ammoToAdd = WeaponData.maxAmmo - WeaponData.CurrentAmmo;
+	if(WeaponData.SpareAmmo - ammoToAdd >= 0 )
+	{
+		WeaponData.SpareAmmo -= ammoToAdd;
+		WeaponData.CurrentAmmo += ammoToAdd;
+	}
+	else if(WeaponData.SpareAmmo - ammoToAdd < 0)
+	{
+		WeaponData.CurrentAmmo += WeaponData.SpareAmmo;
+		WeaponData.SpareAmmo = 0;
+	}
 }
 
 USkeletalMeshComponent* ARangeWeapon::GetWeaponMesh() const

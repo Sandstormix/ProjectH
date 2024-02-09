@@ -2,8 +2,6 @@
 
 
 #include "AmmoPickup.h"
-
-#include "Pistol.h"
 #include "ProjectHCharacter.h"
 
 // Sets default values
@@ -18,7 +16,10 @@ void AAmmoPickup::OnInteract(bool bCanInteract, AProjectHCharacter* playerRefere
 	if(playerReference)
 	{
 			GEngine->AddOnScreenDebugMessage(-1, 15, FColor::Yellow, TEXT("XDDDDDDDDDD"));
-	    	Cast<APistol>(playerReference->GetPlayerRangeWeapon())->AddAmmo(7);
+	    	ARangeWeapon* CurrentWeapon;
+			CurrentWeapon = Cast<ARangeWeapon>(playerReference->GetPlayerRangeWeapon());
+			CurrentWeapon->AddWeaponAmmo(7);
+			playerReference->GetPlayerHUD()->SetAmmoCounter(CurrentWeapon);
 	}
 }
 

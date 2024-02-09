@@ -12,6 +12,8 @@ APistol::APistol()
 	this->WeaponData.CurrentAmmo = 7;
 	this->WeaponData.WeaponName = "Pistol";
 	this->WeaponData.WeaponMesh = this->GetWeaponMesh();
+	this->WeaponData.SpareAmmo = 0;
+	this->WeaponData.maxAmmo = 7;
 }
 
 APistol::~APistol()
@@ -26,7 +28,7 @@ void APistol::Tick(float DeltaSeconds)
 
 void APistol::AddAmmo(int ammoToAdd)
 {
-	this->WeaponData.CurrentAmmo += ammoToAdd;
+	this->WeaponData.SpareAmmo += ammoToAdd;
 }
 
 void APistol::OnWeaponUse()

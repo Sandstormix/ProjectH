@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
 #include "InteractableActor.h"
+#include "PlayerHUD.h"
 #include "RangeWeapon.h"
 #include "ProjectHCharacter.generated.h"
 
@@ -109,6 +110,9 @@ public:
 
 	UFUNCTION(BlueprintGetter)
 	float GetPlayerHealth();
+
+	UFUNCTION(BlueprintGetter)
+	UPlayerHUD* GetPlayerHUD() const;
 	
 	//Setters
 	UFUNCTION(BlueprintSetter)
@@ -125,6 +129,9 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetPlayerHealth(float playerHealth);
+
+	UFUNCTION(BlueprintSetter)
+	void SetPlayerHud(UPlayerHUD* playerHud);
 	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerRangeWeapon", BlueprintSetter="SetPlayerRangeWeapon")
@@ -141,5 +148,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerHealth", BlueprintSetter="SetPlayerHealth")
 	float PlayerHealth;
+
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetPlayerHUD", BlueprintSetter="SetPlayerHud")
+	UPlayerHUD* PlayerHUD;
 };
 

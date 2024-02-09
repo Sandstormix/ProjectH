@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "RangeWeapon.h"
 #include "Blueprint/UserWidget.h"
 #include "PlayerHUD.generated.h"
 
@@ -15,7 +16,9 @@ class PROJECTH_API UPlayerHUD : public UUserWidget
 	GENERATED_BODY()
 
 public:
-
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetAmmoCounter(ARangeWeapon* rangeWeaponReference);
+	
 private:
 	
 };

@@ -32,6 +32,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddWeaponAmmo(int ammoToAdd);
 
+	UFUNCTION(BlueprintCallable)
+	void Reload();
+
 	//Getters
 	UFUNCTION(BlueprintGetter)
 	USkeletalMeshComponent* GetWeaponMesh() const;
