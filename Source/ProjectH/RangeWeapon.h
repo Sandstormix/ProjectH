@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BlendSpaceAnalysis.h"
 #include "FWeapons.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
@@ -17,7 +16,9 @@ class PROJECTH_API ARangeWeapon : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ARangeWeapon();
+	ARangeWeapon(const FString weaponName, int currentAmmo, int spareAmmo, const float damage, int maxAmmo, USkeletalMeshComponent* weaponMesh);
 
+	~ARangeWeapon();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -27,7 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	virtual void OnWeaponUse();
+	void OnWeaponUse();
 
 	UFUNCTION(BlueprintCallable)
 	void AddWeaponAmmo(int ammoToAdd);
@@ -68,6 +69,8 @@ public:
 	void SetWeaponData(FWeapons weaponData);
 
 protected:
+	void Init();
+	
 	const int MaxWeaponAmmo = 7;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");

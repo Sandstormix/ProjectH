@@ -6,8 +6,9 @@ USTRUCT(BlueprintType)
 struct FWeapons : public FTableRowBase
 {
 	GENERATED_BODY()
-
+	
 	FWeapons();
+	FWeapons(FString weaponName, int currentAmmo, int spareAmmo, float damage, int maxammo, USkeletalMeshComponent* weaponmesh);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString WeaponName;
