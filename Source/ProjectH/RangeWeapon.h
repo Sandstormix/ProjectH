@@ -16,7 +16,7 @@ class PROJECTH_API ARangeWeapon : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ARangeWeapon();
-	ARangeWeapon(const FString weaponName, int currentAmmo, int spareAmmo, const float damage, int maxAmmo, USkeletalMeshComponent* weaponMesh);
+	ARangeWeapon(const FString& weaponName, const int &currentAmmo, const int &spareAmmo, const float &damage, const int &maxAmmo, USkeletalMeshComponent* weaponMesh);
 
 	~ARangeWeapon();
 protected:

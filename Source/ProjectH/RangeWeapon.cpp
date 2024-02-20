@@ -11,7 +11,7 @@ ARangeWeapon::ARangeWeapon()
 	Init();
 }
 
-ARangeWeapon::ARangeWeapon(const FString weaponName, int currentAmmo, int spareAmmo, const float damage, int maxAmmo,
+ARangeWeapon::ARangeWeapon(const FString& weaponName, const int &currentAmmo, const int &spareAmmo, const float &damage, const int &maxAmmo,
 	 USkeletalMeshComponent* weaponMesh): WeaponMesh(nullptr), WeaponDamage(0), CurrentWeaponAmmo(0),
 		RayCastExitPoint(nullptr), WeaponData(weaponName, currentAmmo, spareAmmo, damage, maxAmmo, weaponMesh)
 {
