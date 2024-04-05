@@ -4,9 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "FWeapons.h"
-#include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "LegacyCameraShake.h"
+#include "Components/ArrowComponent.h"
 #include "RangeWeapon.generated.h"
 
 UCLASS()
@@ -51,9 +51,6 @@ public:
 	int GetCurrentWeaponAmmo() const;
 
 	UFUNCTION(BlueprintGetter)
-	USphereComponent* GetRayCastExitPoint();
-
-	UFUNCTION(BlueprintGetter)
 	FWeapons GetWeaponData();
 	
 	//Setters
@@ -65,9 +62,6 @@ public:
 
 	UFUNCTION(BlueprintSetter)
 	void SetCurrentWeaponAmmo(int weaponAmmo);
-
-	UFUNCTION(BlueprintSetter)
-	void SetRayCastExitPoint(USphereComponent* rayCastExitPoint);
 
 	UFUNCTION(BlueprintSetter)
 	void SetWeaponData(FWeapons weaponData);
@@ -86,11 +80,9 @@ protected:
 	UPROPERTY(BlueprintGetter="GetCurrentWeaponAmmo", BlueprintSetter="SetCurrentWeaponAmmo")
 	int CurrentWeaponAmmo;
 
-	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetRayCastExitPoint", BlueprintSetter="SetRayCastExitPoint")
-	USphereComponent* RayCastExitPoint;
-
 	UPROPERTY(EditAnywhere, BlueprintGetter="GetWeaponData", BlueprintSetter="SetWeaponData")
 	FWeapons WeaponData;
 
-
+	UPROPERTY(VisibleAnywhere)
+	UArrowComponent* ArrowComponent;
 };

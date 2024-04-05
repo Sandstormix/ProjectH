@@ -14,7 +14,7 @@ ARangeWeapon::ARangeWeapon()
 
 ARangeWeapon::ARangeWeapon(const FString& weaponName, const int &currentAmmo, const int &spareAmmo, const float &damage, const int &maxAmmo,
 	 USkeletalMeshComponent* weaponMesh): WeaponMesh(nullptr), WeaponDamage(0), CurrentWeaponAmmo(0),
-		RayCastExitPoint(nullptr), WeaponData(weaponName, currentAmmo, spareAmmo, damage, maxAmmo, weaponMesh)
+		WeaponData(weaponName, currentAmmo, spareAmmo, damage, maxAmmo, weaponMesh)
 {
 	Init();
 }
@@ -31,8 +31,8 @@ void ARangeWeapon::Init()
 
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon Mesh"));
 	RootComponent = WeaponMesh;
-	RayCastExitPoint = CreateDefaultSubobject<USphereComponent>(TEXT("Ray Cast Exit Point"));
-	RayCastExitPoint->SetupAttachment(RootComponent);
+	ArrowComponent = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow Component"));
+	ArrowComponent->SetupAttachment(RootComponent);
 }
 
 
@@ -54,8 +54,8 @@ void ARangeWeapon::OnWeaponUse()
 	FVector RayCastStartLocation;
 	FRotator RaycastStartRotator;
 
-	RayCastStartLocation = this->GetRayCastExitPoint()->GetComponentLocation();
-	RaycastStartRotator = this->GetRayCastExitPoint()->GetComponentRotation();
+	RayCastStartLocation = ArrowComponent->GetComponentLocation();
+	RaycastStartRotator = ArrowComponent->GetComponentRotation();
 
 	FVector RayCastEnd = RayCastStartLocation + RaycastStartRotator.Vector() * 10000;
 
@@ -76,7 +76,8 @@ void ARangeWeapon::OnWeaponUse()
 	}
 
 	WeaponData.CurrentAmmo--;
-	UGameplayStatics::PlayWorldCameraShake(GetWorld(), CameraShake, this->GetActorLocation(), 0, 500);
+	if(CameraShake)
+		UGameplayStatics::PlayWorldCameraShake(GetWorld(), CameraShake, this->GetActorLocation(), 0, 500);
 }
 
 void ARangeWeapon::AddWeaponAmmo(int ammoToAdd)
@@ -114,11 +115,6 @@ int ARangeWeapon::GetCurrentWeaponAmmo() const
 	return CurrentWeaponAmmo;
 }
 
-USphereComponent* ARangeWeapon::GetRayCastExitPoint()
-{
-	return RayCastExitPoint;
-}
-
 FWeapons ARangeWeapon::GetWeaponData()
 {
 	return WeaponData;
@@ -139,10 +135,6 @@ void ARangeWeapon::SetCurrentWeaponAmmo(int weaponAmmo)
 	CurrentWeaponAmmo = weaponAmmo;
 }
 
-void ARangeWeapon::SetRayCastExitPoint(USphereComponent* rayCastExitPoint)
-{
-	RayCastExitPoint = rayCastExitPoint;
-}
 
 void ARangeWeapon::SetWeaponData(FWeapons weaponData)
 {
