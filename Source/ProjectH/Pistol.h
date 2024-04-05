@@ -15,9 +15,11 @@ class PROJECTH_API APistol : public ARangeWeapon
 	GENERATED_BODY()
 	
 public:
-	
 	APistol();
 	~APistol();
 	
 	virtual void Tick(float DeltaSeconds) override;
+
+protected:
+	virtual void OnWeaponUse() override;
 };

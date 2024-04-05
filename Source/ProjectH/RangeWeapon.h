@@ -6,6 +6,7 @@
 #include "FWeapons.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
+#include "LegacyCameraShake.h"
 #include "RangeWeapon.generated.h"
 
 UCLASS()
@@ -23,12 +24,15 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<ULegacyCameraShake> CameraShake;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void OnWeaponUse();
+	virtual void OnWeaponUse();
 
 	UFUNCTION(BlueprintCallable)
 	void AddWeaponAmmo(int ammoToAdd);
@@ -73,7 +77,7 @@ protected:
 	
 	const int MaxWeaponAmmo = 7;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
+	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
 	USkeletalMeshComponent* WeaponMesh;
 
 	UPROPERTY(BlueprintGetter="GetWeaponDamage", BlueprintSetter="SetWeaponDamage")
@@ -85,6 +89,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetRayCastExitPoint", BlueprintSetter="SetRayCastExitPoint")
 	USphereComponent* RayCastExitPoint;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponData", BlueprintSetter="SetWeaponData")
+	UPROPERTY(EditAnywhere, BlueprintGetter="GetWeaponData", BlueprintSetter="SetWeaponData")
 	FWeapons WeaponData;
+
+
 };

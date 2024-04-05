@@ -4,6 +4,7 @@
 #include "RangeWeapon.h"
 
 #include "Damagable.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ARangeWeapon::ARangeWeapon()
@@ -75,6 +76,7 @@ void ARangeWeapon::OnWeaponUse()
 	}
 
 	WeaponData.CurrentAmmo--;
+	UGameplayStatics::PlayWorldCameraShake(GetWorld(), CameraShake, this->GetActorLocation(), 0, 500);
 }
 
 void ARangeWeapon::AddWeaponAmmo(int ammoToAdd)
