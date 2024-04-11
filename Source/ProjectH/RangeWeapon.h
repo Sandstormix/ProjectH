@@ -83,6 +83,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintGetter="GetWeaponData", BlueprintSetter="SetWeaponData")
 	FWeapons WeaponData;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UArrowComponent* ArrowComponent;
 };
