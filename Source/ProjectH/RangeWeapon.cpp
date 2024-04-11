@@ -28,7 +28,7 @@ void ARangeWeapon::Init()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	//This is a comment 
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon Mesh"));
 	RootComponent = WeaponMesh;
 	ArrowComponent = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow Component"));
