@@ -71,7 +71,7 @@ protected:
 	
 	const int MaxWeaponAmmo = 7;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintGetter="GetWeaponMesh", BlueprintSetter="SetWeaponMesh");
 	USkeletalMeshComponent* WeaponMesh;
 
 	UPROPERTY(BlueprintGetter="GetWeaponDamage", BlueprintSetter="SetWeaponDamage")

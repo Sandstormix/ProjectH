@@ -23,8 +23,11 @@ struct FWeapons : public FTableRowBase
 	float Damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int maxAmmo;
+	int MaxAmmo;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMeshComponent* WeaponMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FireRate;
 };

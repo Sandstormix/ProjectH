@@ -87,7 +87,7 @@ void ARangeWeapon::AddWeaponAmmo(int ammoToAdd)
 
 void ARangeWeapon::Reload()
 {
-	const int ammoToAdd = WeaponData.maxAmmo - WeaponData.CurrentAmmo;
+	const int ammoToAdd = WeaponData.MaxAmmo - WeaponData.CurrentAmmo;
 	if(WeaponData.SpareAmmo - ammoToAdd >= 0 )
 	{
 		WeaponData.SpareAmmo -= ammoToAdd;
